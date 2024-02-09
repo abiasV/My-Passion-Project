@@ -1,0 +1,20 @@
+﻿@model IEnumerable<MyPassionProject.Models.AssignmentDto>
+
+@{
+    ViewBag.Title = "Assignment List";
+}
+
+<div id="containerlist">
+    <nav>
+        <a class="navlink" href="/Assignment/New">New Assignment</a>
+    </nav><br />
+
+    @foreach (var assignment in Model)
+    {
+        <h2><a href="/Assignment/Details/@assignment.AssignmentId">@assignment.AssignmentType</a></h2>
+        <div>Project: @assignment.ProjectName</div>
+        <div>Status: @assignment.Status</div>
+        <br />
+
+    }
+</div>

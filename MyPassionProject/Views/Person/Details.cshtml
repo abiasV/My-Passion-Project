@@ -1,0 +1,24 @@
+﻿@model MyPassionProject.Models.ViewModels.DetailsPerson
+
+@{
+    ViewBag.Title = "View";
+}
+
+<a href="/Person/List">Go back to list</a>
+<br />
+<a href="/Person/Edit/@Model.SelectedPerson.PersonId">Update</a>
+<br />
+<a style="color:#ab2020;" href="/Person/DeleteConfirm/@Model.SelectedPerson.PersonId">Delete</a>
+<h2>@Model.SelectedPerson.PersonFirstName @Model.SelectedPerson.PersonLastName</h2>
+
+
+
+<div>
+    <h3>Assigned to:</h3>
+    @foreach (var assignment in Model.KeptAssignments)
+    {
+        <a href="/Assignment/Details/@assignment.AssignmentId">@assignment.AssignmentType</a><br />
+
+    }
+</div>
+

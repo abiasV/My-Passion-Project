@@ -1,0 +1,13 @@
+﻿@model IEnumerable<MyPassionProject.Models.PersonDto>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List</h2>
+<a href="/Person/New">New Person</a>
+@foreach (var person in Model)
+{
+    <h2><a href="/Person/Details/@person.PersonId">@person.PersonFirstName, @person.PersonLastName</a></h2>
+}
+

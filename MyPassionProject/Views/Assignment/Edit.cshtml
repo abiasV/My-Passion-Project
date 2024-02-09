@@ -1,0 +1,41 @@
+﻿@model MyPassionProject.Models.ViewModels.UpdateAssignment
+
+@{
+    ViewBag.Title = "Edit Assignment";
+}
+
+
+<h2>Update Assignment</h2>
+<form action="/Assignment/Update/@Model.SelectedAssignment.AssignmentId" method="POST">
+    <div style="display:none;">
+        @* Pass through the assignment ID *@
+        <input type="text" name="AssignmentId" value="@Model.SelectedAssignment.AssignmentId" />
+    </div>
+    <div>
+        <label>Assignment Type:</label> <input type="text" name="AnimalName" value="@Model.SelectedAssignment.AssignmentType" />
+    </div>
+    <div>
+        <label>Project Name:</label>
+        <select name="ProjectId">
+            @foreach (var project in Model.ProjectOptions)
+            {
+                <option value="@project.ProjectId">@project.ProjectName</option>
+            }
+        </select>
+    </div>
+    <div>
+        <div>
+            <label>Status:</label>
+            <input type="text" name="Status" value="@Model.SelectedAssignment.Status" />
+        </div>
+
+    </div>
+    <div>
+        <label>Due Date:</label> <input type="datetime-local" name="DueDate" value="@Model.SelectedAssignment.DueDate" />
+    </div>
+    <div>
+        <input type="submit" value="Update Animal" />
+
+    </div>
+</form>
+

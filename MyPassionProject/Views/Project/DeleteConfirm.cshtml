@@ -1,0 +1,14 @@
+﻿@model MyPassionProject.Models.ProjectDto
+
+@{
+    ViewBag.Title = "Delete Confirm";
+}
+
+<h2>Are you sure you want to delete this Project?</h2>
+<a href="/Project/List">Cancel</a>
+<h3>Project Name: @Model.ProjectName</h3>
+<p>Description: @Model.ProjectDescription</p>
+<form action="/Project/Delete/@Model.ProjectId" method="POST">
+    <input type="submit" value="Confirm Delete" />
+</form>
+

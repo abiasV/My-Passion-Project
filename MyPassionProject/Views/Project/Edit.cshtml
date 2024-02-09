@@ -1,0 +1,22 @@
+﻿@model MyPassionProject.Models.ProjectDto
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Update Project</h2>
+<form action="/Project/Update/@Model.ProjectId" method="POST">
+    <div style="display:none;">
+        <input type="text" name="ProjectId" value="@Model.ProjectId" />
+    </div>
+    <div>
+        <label>Name:</label> <input type="text" name="ProjectName" value="@Model.ProjectName" />
+    </div>
+    <div>
+        <label>Description:</label> <input type="text" name="Description" value="@Model.Description" />
+    </div>
+    <div>
+        <input type="submit" value="Update project" />
+
+    </div>
+</form>

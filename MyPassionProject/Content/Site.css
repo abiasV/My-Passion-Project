@@ -1,0 +1,80 @@
+﻿
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+﻿﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.nav {
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.navlink {
+    text-decoration: underline;
+    padding: 0 0 50px 50px;
+    color: #000;
+}
+
+.dellink {
+    font-size: 20px;
+    padding: 12px;
+    border: 1px solid green;
+    color: #ff6a00;
+    text-decoration: none;
+    border-radius: 20px;
+}
+
+.dellink:hover {
+    color: #ff0000;
+    text-decoration: underline;
+}
+
+.editlink {
+    font-size: 20px;
+    padding: 10px;
+    border: 1px solid green;
+    color: #4cff00;
+    text-decoration: none;
+    border-radius: 20px;
+}
+
+.editlink:hover {
+    color: green;
+    text-decoration: underline;
+}
+
+.process {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#containerlist, #containershow {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 80px;
+}
+
+.listitem {
+    margin: 10px 0;
+}
