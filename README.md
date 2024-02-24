@@ -1,4 +1,4 @@
-# Passion Project: Assignment Tracker Application
+# Assignment-Tracker-Application
 
 ## Overview
 
