@@ -12,7 +12,7 @@
         <input type="text" name="AssignmentId" value="@Model.SelectedAssignment.AssignmentId" />
     </div>
     <div>
-        <label>Assignment Type:</label> <input type="text" name="AnimalName" value="@Model.SelectedAssignment.AssignmentType" />
+        <label>Assignment Type:</label> <input type="text" name="AssignmentType" value="@Model.SelectedAssignment.AssignmentType" />
     </div>
     <div>
         <label>Project Name:</label>
@@ -26,16 +26,20 @@
     <div>
         <div>
             <label>Status:</label>
-            <input type="text" name="Status" value="@Model.SelectedAssignment.Status" />
+            <select name="status" id="status">
+                <option selected hidden value="@Model.SelectedAssignment.Status">@Model.SelectedAssignment.Status</option>
+                <option value="Todo">To DO</option>
+                <option value="Doing">Doing</option>
+                <option value="Done">Done</option>
+            </select>
         </div>
 
     </div>
     <div>
-        <label>Due Date:</label> <input type="datetime-local" name="DueDate" value="@Model.SelectedAssignment.DueDate" />
+        <label>Due Date:</label> <input type="date" name="DueDate" value="@Model.SelectedAssignment.DueDate.ToString().Substring(0, 10)" />
     </div>
     <div>
-        <input type="submit" value="Update Animal" />
+        <input type="submit" value="Update Assignment" />
 
     </div>
 </form>
-

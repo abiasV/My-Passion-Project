@@ -12,14 +12,16 @@
 <br />
 <a style="color:#ab2020;" href="/Project/DeleteConfirm/@Model.SelectedProject.ProjectId">Delete</a>
 <h2>@Model.SelectedProject.ProjectName</h2>
-<div>Description: @Model.SelectedProject.Description</div>
+<br />
+<h4>Description: @Model.SelectedProject.Description</h4>
 
 
 <div style="margin-top:100px;">
     <h3>Assignments related to this Project</h3>
     @foreach (var assignment in Model.RelatedAssignments)
     {
-        <a href="/Assignment/Details/@assignment.AssignmentId">@assignment.AssignmentType</a>
+        <h5>Assignment Type:</h5><h3><a href="/Assignment/Details/@assignment.AssignmentId">@assignment.AssignmentType</a></h3>
+        <br />
 
     }
 </div>

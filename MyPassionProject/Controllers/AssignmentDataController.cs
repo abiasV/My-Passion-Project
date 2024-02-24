@@ -19,6 +19,9 @@ namespace MyPassionProject.Controllers
 {
     public class AssignmentDataController : ApiController
     {
+
+        // curl -H "Cookie: .AspNet.ApplicationCookie=9UigFSYGK-uUnyus4L4pws6aJQnAvDoSBk8j2xpqqiByMTLwHNdkQS6CWUQ-TGGwyurwdz7rdF7h0M0RnjdsM_VXR3c4skh7wKLP2F-x5NRAdEUW3PCMtlazwI89COzcIq_oC-wwiYPu4TNFfB-u2KtM2HZpZmp_oRxIFRgmU9li1LY_oM_2aV6jOn1EKtKJvQEIUoqHutj6Vv4sUI8fcgo2SWA3mfRDC1v6dtkbWX4IKO1iyVjSYkn1LUlV9yUC_jtENIXcLWKxRomQ1cWcn1m8NH7t9HdOBBKBGASsl5ik-vwtoW0j452aVSJLWlj_kqdbpEn-63oF3vRFrv2-FGS5Za2_fLYkW_BhHqLRa9ecSAgvc6jUhRtyCJSYK0-5X8VsGNd9p6lzekkSiDcgRBUlN0XSEsiuCuxJKtX1c74f72Pn_6-Z6thsTvHLIVHM3CVG3RRvDua_oHAazixrHGBoRcM1z1yXpYXP_ypJ3g8" https://localhost:44346/api/AssignmentData/ListAssignments
+
         private ApplicationDbContext db = new ApplicationDbContext();
         /// <summary>
         /// Returns all assignments in the system.
@@ -27,6 +30,7 @@ namespace MyPassionProject.Controllers
         // C:\Users\...\repos\MyPassionProject\MyPassionProject\jsondata>curl https://localhost:44346/api/AssignmentData/ListAssignments
         [HttpGet]
         [ResponseType(typeof(AssignmentDto))]
+        
         public IHttpActionResult ListAssignments()
         {
             List<Assignment> Assignments = db.Assignments.ToList();
@@ -62,6 +66,7 @@ namespace MyPassionProject.Controllers
                 ProjectName = Assignment.Project.ProjectName,
                 ProjectId = Assignment.Project.ProjectId
             };
+
             if (Assignment == null)
             {
                 return NotFound();
