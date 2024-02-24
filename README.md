@@ -13,8 +13,8 @@ This project addresses challenges related to task organization, user assignment,
 - **SQL:** The relational database management system stores and manages data.
 
 ## Installation
-1. Clone this repository: `https://github.com/abiasV/My-Passion-Project.git`
-2. Navigate to the project directory: `cd My-Passion-Project`
+1. Clone this repository: git clone https://github.com/abiasV/My-Passion-Project.git
+2. Navigate to the project directory: cd My-Passion-Project
 
 ## Features
 
