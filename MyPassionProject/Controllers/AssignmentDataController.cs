@@ -143,7 +143,7 @@ namespace MyPassionProject.Controllers
         /// </example>
         [HttpPost]
         [Route("api/AssignmentData/AssignAssignmentWithPerson/{assignmentid}/{personid}")]
-         
+        [Authorize]
         public IHttpActionResult AssignAssignmentWithPerson(int assignmentid, int personid)
         {
 
@@ -177,7 +177,7 @@ namespace MyPassionProject.Controllers
         /// </example>
         [HttpPost]
         [Route("api/AssignmentData/UnAssignAssignmentToPerson/{assignmentid}/{personid}")]
-         
+        [Authorize]
         public IHttpActionResult UnAssignAssignmentToPerson(int assignmentid, int personid)
         {
 
@@ -210,7 +210,7 @@ namespace MyPassionProject.Controllers
         // C:\jsondata>curl -d @Assignment.json -H "Content-type:application/json" https://localhost:44346/api/AssignmentData/updateAssignment/8
         [ResponseType(typeof(void))]
         [HttpPost]
-         
+        [Authorize]
         public IHttpActionResult UpdateAssignment(int id, Assignment assignment)
         {
             if (!ModelState.IsValid)
@@ -253,7 +253,7 @@ namespace MyPassionProject.Controllers
         // C:\Users\...\repos\MyPassionProject\MyPassionProject\jsondata>curl -d @Assignment.json -H "Content-type:application/json" https://localhost:44346/api/AssignmentData/AddAssignment
         [ResponseType(typeof(Assignment))]
         [HttpPost]
-         
+        [Authorize]
         public IHttpActionResult AddAssignment(Assignment assignment)
         {
             if (!ModelState.IsValid)
@@ -277,7 +277,7 @@ namespace MyPassionProject.Controllers
         // C:\Users\...\repos\MyPassionProject\MyPassionProject\jsondata>curl -d "" https://localhost:44346/api/AssignmentData/deleteassignment/9
         [ResponseType(typeof(Assignment))]
         [HttpPost]
-         
+        [Authorize]
         public IHttpActionResult DeleteAssignment(int id)
         {
             Assignment Assignment = db.Assignments.Find(id);

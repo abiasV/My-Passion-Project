@@ -53,7 +53,6 @@ namespace MyPassionProject.Controllers
         }
 
         // GET: Assignment/List
-        [Authorize]
         public ActionResult List()
         {
             //objective: communicate with our assignment data api to retrieve a list of assignments
@@ -115,10 +114,10 @@ namespace MyPassionProject.Controllers
 
         //POST: Assignment/Assign/{assignmentId}/{personId}
         [HttpPost]
-         
+        [Authorize]
         public ActionResult Assign(int id, int personId)
         {
-            
+            GetApplicationCookie();//get token credentials
             Debug.WriteLine("Attempting to Assign assignment :" + id + " with person " + personId);
 
             //call our api to Assign assignment with person
@@ -132,10 +131,10 @@ namespace MyPassionProject.Controllers
 
         //Get: Assignment/UnAssign/{id}?personId={personId}
         [HttpGet]
-         
+        [Authorize]
         public ActionResult UnAssign(int id, int personId)
         {
-            
+            GetApplicationCookie();//get token credentials
             Debug.WriteLine("Attempting to UnAssign assignment :" + id + " with person: " + personId);
 
             //call our api to Assigned Assignment with Person
@@ -153,7 +152,7 @@ namespace MyPassionProject.Controllers
         }
 
         // GET: Assignment/New
-        
+        [Authorize]
         public ActionResult New()
         {
 
@@ -170,11 +169,11 @@ namespace MyPassionProject.Controllers
 
         // POST: Assignment/Create
         [HttpPost]
-         
+        [Authorize]
         public ActionResult Create(Assignment assignment)
         {
-            
-            Debug.WriteLine("the json payload is :");
+            GetApplicationCookie();//get token credentials
+            //Debug.WriteLine("the json payload is :");
             //Debug.WriteLine(assignment.AssignmentType);
             //curl -H "Content-Type:application/json" -d @assignment.json https://localhost:44346/api/AssignmentData/AddAssignment 
             string url = "AssignmentData/AddAssignment";
@@ -199,7 +198,7 @@ namespace MyPassionProject.Controllers
         }
 
         // GET: Assignment/Edit/5
-         
+        [Authorize]
         public ActionResult Edit(int id)
         {
             // grab the assignment info
@@ -229,7 +228,7 @@ namespace MyPassionProject.Controllers
 
         // POST: Assignment/Update/5
         [HttpPost]
-         
+        [Authorize]
         public ActionResult Update(int id, Assignment assignment)
         {
             GetApplicationCookie();//get token credentials
@@ -251,7 +250,7 @@ namespace MyPassionProject.Controllers
         }
 
         // GET: Assignment/Delete/5
-         
+        [Authorize]
         public ActionResult DeleteConfirm(int id)
         {
             string url = "AssignmentData/FindAssignment/" + id;
@@ -262,10 +261,10 @@ namespace MyPassionProject.Controllers
 
         // POST: Assignment/Delete/5
         [HttpPost]
-         
+        [Authorize]
         public ActionResult Delete(int id)
         {
-            
+            GetApplicationCookie();//get token credentials
             string url = "AssignmentData/DeleteAssignment/" + id;
             HttpContent content = new StringContent("");
             content.Headers.ContentType.MediaType = "application/json";
