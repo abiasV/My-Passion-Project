@@ -4,11 +4,28 @@
     ViewBag.Title = "List";
 }
 
-<h2>List</h2>
-<a href="/Project/New">New Project</a>
-@foreach (var project in Model)
-{
-    <h2><a href="/Project/Details/@project.ProjectId">@project.ProjectName</a></h2>
-    <div>Description: @project.Description</div>
+<div id="containerlist">
+    <nav>
+        <a href="/Project/New" class="btn btn-success btn-lg active" role="button" aria-pressed="true">New Project</a>
+    </nav>
+</div>
 
-}
+<div class="my-5">
+    <table class="table table-striped my-5">
+        <thead>
+            <tr>
+                <th scope="col" width="50%"><h2>Project Name</h2></th>
+                <th scope="col" width="50%"><h2>Description</h2></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var project in Model)
+            {
+                <tr>
+                    <td><a href="/Project/Details/@project.ProjectId" class="text-decoration-none">@project.ProjectName</a></td>
+                    <td>@project.Description</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

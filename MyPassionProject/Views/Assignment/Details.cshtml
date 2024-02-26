@@ -2,45 +2,68 @@
 @{
     ViewBag.Title = "View";
 }
+<a href="/Assignment/List" class="my-4 btn btn-secondary" role="button" aria-pressed="true">Go back to list</a>
 
-<a href="/Assignment/List">Go back to list</a>
-<br />
-<a href="/Assignment/Edit/@Model.SelectedAssignment.AssignmentId">Update</a>
-<br />
-<a style="color:#ab2020;" href="/Assignment/DeleteConfirm/@Model.SelectedAssignment.AssignmentId">Delete</a>
-<h2>@Model.SelectedAssignment.AssignmentType</h2>
-<div>Project Name: @Model.SelectedAssignment.ProjectName</div>
-<div>status: @Model.SelectedAssignment.Status</div>
-<div>Due Date: @Model.SelectedAssignment.DueDate.ToString().Substring(0, 10)</div>
-
-<div>
-    <h2>Persons Responsible for @Model.SelectedAssignment.AssignmentType:</h2>
-    @foreach (var person in Model.ResponsiblePersons)
-    {
-
-        <a href="/Person/Details/@person.PersonId">@person.PersonFirstName @person.PersonLastName</a> <a style="color:#ab2020;" href="/Assignment/UnAssign/@Model.SelectedAssignment.AssignmentId?PersonId=@person.PersonId">[x]</a><br />
-    }
-
-    <div>
-        <h4>Add new person to do @Model.SelectedAssignment.ProjectName</h4>
-        <form method="POST" action="/Assignment/Assign">
-            <select name="PersonId">
-                @foreach (var person in Model.AvailablePersons)
-                {
-                    <option value="@person.PersonId">@person.PersonFirstName @person.PersonLastName</option>
-                }
-
-            </select>
-            <input type="hidden" value="@Model.SelectedAssignment.AssignmentId" name="id" />
-            <input type="submit" value="Assign Person" />
-        </form>
-    </div>
+<div class="mb-5">
+    <table class="table table-bordered">
+        <thead>
+            <tr class="text-center">
+                <th style="width:30%;">Assignment</th>
+                <th style="width:30%;">Project Name</th>
+                <th style="width:10%;">Status</th>
+                <th style="width:15%;">Due Date</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><h3>@Model.SelectedAssignment.AssignmentType</h3></td>
+                <td>@Model.SelectedAssignment.ProjectName</td>
+                <td class="text-center">@Model.SelectedAssignment.Status</td>
+                <td class="text-center">@Model.SelectedAssignment.DueDate.ToString().Substring(0, 10)</td>
+                <td class="text-center">
+                    <a href="/Assignment/Edit/@Model.SelectedAssignment.AssignmentId" class="mt-2 btn btn-warning" role="button" aria-pressed="true">Edit</a>
+                    <a href="/Assignment/DeleteConfirm/@Model.SelectedAssignment.AssignmentId" class="mt-2 btn btn-danger" role="button" aria-pressed="true">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>
 
+<div class="mb-5">
+    <table class="table table-bordered">
+        <thead>
+            <tr class="text-center">
+                <th scope="col"><h2>Persons Responsible for <span class="text-success">@Model.SelectedAssignment.AssignmentType:</span></h2></th>
+                <th scope="col">Action</th>
 
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var person in Model.ResponsiblePersons)
+            {
+                <tr>
+                    <td><h3><a href="/Person/Details/@person.PersonId" class="text-decoration-none">@person.PersonFirstName @person.PersonLastName</a></h3></td>
+                    <td class="text-center"><a href="/Assignment/UnAssign/@Model.SelectedAssignment.AssignmentId?PersonId=@person.PersonId" class="mt-2 btn btn-danger" role="button" aria-pressed="true">Delete</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
 
+<div class="mb-5">
+    <form class="form-group" method="POST" action="/Assignment/Assign">
+        <label for="name">Add new person to <span class="text-warning bg-dark fs-4">@Model.SelectedAssignment.ProjectName</span> Project:</label>
+        <select class="form-group form-select-lg" name="PersonId">
+            @foreach (var person in Model.AvailablePersons)
+            {
+                <option value="@person.PersonId">@person.PersonFirstName @person.PersonLastName</option>
+            }
 
-
-
-
-
+        </select>
+        <span class="input-group-btn">
+            <input type="hidden" value="@Model.SelectedAssignment.AssignmentId" name="id" />
+            <button type="submit" class="btn btn-success">Assign Person</button>
+        </span>
+    </form>
+</div>

@@ -3,17 +3,18 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create Project</h2>
-<form action="/Project/Create" method="POST">
-    <div>
-        <label>Project Name:</label> <input type="text" name="ProjectName" />
-    </div>
-    <div>
-        <label>Description:</label>
-        <input type="text" name="Description" />
-    </div>
-    <div>
-        <input type="submit" value="Create Project" />
+<h2 class="text-center my-5">Create Project</h2>
 
+<form class="col-lg-6 offset-lg-3" action="/Project/Create" method="POST">
+    <div class="form-group mb-4">
+        <label for="name">Project Name:</label>
+        <input type="text" class="form-control" id="name" name="ProjectName" placeholder="Project Name">
+    </div>
+    <div class="form-group">
+        <label for="Description">Description:</label>
+        <input type="text" name="Description" class="form-control" id="Description" placeholder="Project Description">
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary my-5">Add Project</button>
     </div>
 </form>

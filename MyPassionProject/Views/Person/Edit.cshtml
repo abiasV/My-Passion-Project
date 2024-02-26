@@ -4,22 +4,26 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Update Person</h2>
-<form action="/Person/Update/@Model.PersonId" method="POST">
-    <div style="display:none;">
-        
-        <input type="text" name="PersonId" value="@Model.PersonId" />
-    </div>
-    <div>
-        <label>First Name:</label> <input type="text" name="PersonFirstName" value="@Model.PersonFirstName" />
-    </div>
-    <div>
-        <label>Last Name:</label> <input type="text" name="PersonLastName" value="@Model.PersonLastName" />
-    </div>
+<div class="mb-5">
+    <h2 class="text-center mb-5">Update Person</h2>
+</div>
 
-    <div>
-        <input type="submit" value="Update Person" />
-
-    </div>
-</form>
-
+<div class="mb-5">
+    <form class="col-lg-6 offset-lg-3" action="/Person/Update/@Model.PersonId" method="POST">
+        <div style="display:none;" class="form-group">
+            @* Pass through the assignment ID *@
+            <input type="text" class="form-control" id="id" name="PersonId" value="@Model.PersonId">
+        </div>
+        <div class="form-group pb-3">
+            <label for="fname">First Name:</label>
+            <input type="text" class="form-control" id="fname" name="PersonFirstName" value="@Model.PersonFirstName">
+        </div>
+        <div class="form-group pb-3">
+            <label for="lname">Last Name:</label>
+            <input type="text" class="form-control" id="lname" name="PersonLastName" value="@Model.PersonLastName">
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary my-3">Update Person</button>
+        </div>
+    </form>
+</div>

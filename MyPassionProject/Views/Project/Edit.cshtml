@@ -4,19 +4,26 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Update Project</h2>
-<form action="/Project/Update/@Model.ProjectId" method="POST">
-    <div style="display:none;">
-        <input type="text" name="ProjectId" value="@Model.ProjectId" />
-    </div>
-    <div>
-        <label>Name:</label> <input type="text" name="ProjectName" value="@Model.ProjectName" />
-    </div>
-    <div>
-        <label>Description:</label> <input type="text" name="Description" value="@Model.Description" />
-    </div>
-    <div>
-        <input type="submit" value="Update project" />
+<div class="mb-5">
+    <h2 class="text-center mb-5">Update Project</h2>
+</div>
 
-    </div>
-</form>
+<div class="mb-5">
+    <form class="col-lg-6 offset-lg-3" action="/Project/Update/@Model.ProjectId" method="POST">
+        <div style="display:none;" class="form-group">
+            @* Pass through the assignment ID *@
+            <input type="text" class="form-control" id="id" name="ProjectId" value="@Model.ProjectId">
+        </div>
+        <div class="form-group pb-3">
+            <label for="name">Project Name:</label>
+            <input type="text" class="form-control" id="name" name="ProjectName" value="@Model.ProjectName">
+        </div>
+        <div class="form-group pb-3">
+            <label for="description">Project Description:</label>
+            <input type="text" class="form-control" id="description" name="Description" value="@Model.Description">
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary my-3">Update project</button>
+        </div>
+    </form>
+</div>

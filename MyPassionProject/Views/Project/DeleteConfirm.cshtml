@@ -4,11 +4,30 @@
     ViewBag.Title = "Delete Confirm";
 }
 
-<h2>Are you sure you want to delete this Project?</h2>
-<a href="/Project/List">Cancel</a>
-<h3>Project Name: @Model.ProjectName</h3>
-<p>Description: @Model.Description</p>
-<form action="/Project/Delete/@Model.ProjectId" method="POST">
-    <input type="submit" value="Confirm Delete" />
-</form>
+<h2 class="text-center my-3">Are you sure you want to delete this Project?</h2>
 
+<div class="my-5">
+    <table class="table table-striped my-5">
+        <thead>
+            <tr>
+                <th scope="col" width="25%">Project Name</th>
+                <th scope="col" width="50%">Description</th>
+                <th scope="col" width="25%"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.ProjectName</td>
+                <td>@Model.Description</td>
+                <td>
+                    <form class="col-lg-6 offset-lg-3" action="/Project/Delete/@Model.ProjectId" method="POST">
+                        <button type="submit" class="btn btn-danger">Confirm Delete</button>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="text-center">
+    <a href="/Project/Details/@Model.ProjectId" class="my-4 btn btn-info" role="button" aria-pressed="true">Cancel</a>
+</div>

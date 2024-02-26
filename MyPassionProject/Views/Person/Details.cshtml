@@ -4,21 +4,38 @@
     ViewBag.Title = "View";
 }
 
-<a href="/Person/List">Go back to list</a>
-<br />
-<a href="/Person/Edit/@Model.SelectedPerson.PersonId">Update</a>
-<br />
-<a style="color:#ab2020;" href="/Person/DeleteConfirm/@Model.SelectedPerson.PersonId">Delete</a>
-<h2>@Model.SelectedPerson.PersonFirstName @Model.SelectedPerson.PersonLastName</h2>
+<div class="mb-5">
+    <a href="/Person/List" class="my-4 btn btn-secondary" role="button" aria-pressed="true">Go back to list of Persons</a>
 
-
-
-<div>
-    <h3>Assigned to:</h3>
-    @foreach (var assignment in Model.KeptAssignments)
-    {
-        <a href="/Assignment/Details/@assignment.AssignmentId">@assignment.AssignmentType</a><br />
-
-    }
 </div>
 
+<div class="mb-5">
+    <table class="table table-bordered">
+        <thead>
+            <tr class="text-center">
+                <th scope="col">Name</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><h2>@Model.SelectedPerson.PersonFirstName @Model.SelectedPerson.PersonLastName</h2></td>
+                <td class="text-center">
+                    <a href="/Person/Edit/@Model.SelectedPerson.PersonId" class="mt-2 btn btn-warning" role="button" aria-pressed="true">Edit</a>
+                    <a href="/Person/DeleteConfirm/@Model.SelectedPerson.PersonId" class="mt-2 btn btn-danger" role="button" aria-pressed="true">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<div class="mb-5">    
+    <ul class="list-group">
+        <li class="list-group-item active fs-3" aria-current="true">Assignments have been assigned to <span class="text-warning bg-dark fs-3">@Model.SelectedPerson.PersonFirstName @Model.SelectedPerson.PersonLastName</span> :</li>
+        @foreach (var assignment in Model.KeptAssignments)
+        {
+            <li class="list-group-item fs-3"><a class="text-decoration-none" href="/Assignment/Details/@assignment.AssignmentId">@assignment.AssignmentType</a></li>
+        }
+    </ul> 
+</div>

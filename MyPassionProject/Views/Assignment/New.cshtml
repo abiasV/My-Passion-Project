@@ -4,14 +4,17 @@
     ViewBag.Title = "Add Assignment";
 }
 
-<h2>Create Assignment</h2>
-<form action="/Assignment/Create" method="POST">
-    <div>
-        <label>Assignment Type:</label> <input type="text" name="AssignmentType" />
+<h2 class="text-center mb-5">Create Assignment</h2>
+
+
+<form class="col-lg-6 offset-lg-3" action="/Assignment/Create" method="POST">
+    <div class="form-group">
+        <label for="type">Assignment Type:</label>
+        <input type="text" class="form-control" id="type" name="AssignmentType" placeholder="Enter Assignment Type">
     </div>
-    <div>
-        <label>Project Name:</label>
-        <select name="ProjectId">
+    <div class="form-group">
+        <label for="name">Project Name:</label>
+        <select class="form-select form-select-lg" id="name" name="ProjectId">
             @foreach (var project in Model)
             {
                 <option value="@project.ProjectId">@project.ProjectName</option>
@@ -19,23 +22,19 @@
             }
         </select>
     </div>
-    <div>
-        <label>Status:</label>
-        <select name="status" id="status">
+    <div class="form-group">
+        <label for="status">Status:</label>
+        <select class="form-select form-select-lg" name="status" id="status">
             <option value="Todo">To DO</option>
             <option value="Doing">Doing</option>
             <option value="Done">Done</option>
         </select>
     </div>
-    <div>
-        <label>Date:</label>
-        <input type="date" name="DueDate" />
+    <div class="form-group">
+        <label for="date">Date:</label>
+        <input type="date" name="DueDate" class="form-control" id="date">
     </div>
     <div>
-        <input type="submit" value="Add Assignment" />
+        <button type="submit" class="btn btn-primary my-5">Add Assignment</button>
     </div>
 </form>
-
-
-
-

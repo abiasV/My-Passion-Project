@@ -6,22 +6,39 @@
     ViewBag.Title = "View";
 }
 
-<a href="/Project/List">Go back to list</a>
-<br />
-<a href="/Project/Edit/@Model.SelectedProject.ProjectId">Update</a>
-<br />
-<a style="color:#ab2020;" href="/Project/DeleteConfirm/@Model.SelectedProject.ProjectId">Delete</a>
-<h2>@Model.SelectedProject.ProjectName</h2>
-<br />
-<h4>Description: @Model.SelectedProject.Description</h4>
+<div class="mb-5">
+    <a href="/Project/List" class="my-4 btn btn-secondary" role="button" aria-pressed="true">Go back to the list of Projects</a>
+</div>
+
+<div class="mb-5">
+    <table class="table table-bordered">
+        <thead>
+            <tr class="text-center">
+                <th scope="col">Project Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><h2>@Model.SelectedProject.ProjectName</h2></td>
+                <td><h2>@Model.SelectedProject.Description</h2></td>
+                <td class="text-center">
+                    <a href="/Project/Edit/@Model.SelectedProject.ProjectId" class="mt-2 btn btn-warning" role="button" aria-pressed="true">Edit</a>
+                    <a href="/Project/DeleteConfirm/@Model.SelectedProject.ProjectId" class="mt-2 btn btn-danger" role="button" aria-pressed="true">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
 
-<div style="margin-top:100px;">
-    <h3>Assignments related to this Project</h3>
-    @foreach (var assignment in Model.RelatedAssignments)
-    {
-        <h5>Assignment Type:</h5><h3><a href="/Assignment/Details/@assignment.AssignmentId">@assignment.AssignmentType</a></h3>
-        <br />
-
-    }
+<div class="mb-5">
+    <ul class="list-group">
+        <li class="list-group-item active fs-3" aria-current="true">Assignments related to <span class="text-warning bg-dark fs-3">@Model.SelectedProject.ProjectName</span>:</li>
+        @foreach (var assignment in Model.RelatedAssignments)
+        {
+            <li class="list-group-item fs-3"><a class="text-decoration-none" href="/Assignment/Details/@assignment.AssignmentId">@assignment.AssignmentType</a></li>
+        }
+    </ul>
 </div>
