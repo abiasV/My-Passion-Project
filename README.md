@@ -6,7 +6,7 @@ Welcome to My  Assignment Tracker CMS, a web application developed using C# with
 This project addresses challenges related to task organization, user assignment, project tracking, status updates (Todo, Doing, Done), collaboration, due date management, and reporting.
 
 ## Live Website
-![View Website:](Screenshot.jpeg)
+![View Website:](Screenshot.png)
 
 ## Technologies Used
 
